@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resourse
+            name ="jdbc/db"
+            auth ="Container"
+            type ="javax.sql.DataSource"
+            driverClassName = "org.sqlite.JDBC"
+            url = "jdbc:sqlite:memory:"
+            closeMethod ="close"
+    />
+    <Resourse
+            name ="bean/auto-service"
+            auth ="ru.itpark.service.AutoService"
+            factory = "org.apache.naming.factory.BeanFactory"
+    />
+    <Resourse
+            name ="bean/file-service"
+            auth ="ru.itpark.service.FileService"
+            factory = "org.apache.naming.factory.BeanFactory"
+    />
+</Context>
