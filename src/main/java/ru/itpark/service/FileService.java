@@ -1,6 +1,5 @@
 package ru.itpark.service;
 
-import lombok.var;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Part;
