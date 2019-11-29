@@ -23,7 +23,6 @@ public class CatalogServlet extends HttpServlet {
             context = new InitialContext();
             autoService = (AutoService) context.lookup("java:comp/env/bean/auto-service");
             fileService = (FileService) context.lookup("java:comp/env/bean/file-service");
-
         } catch (NamingException e) {
             e.printStackTrace();
             throw new ServletException(e);
@@ -51,7 +50,7 @@ public class CatalogServlet extends HttpServlet {
             var image = fileService.writeFile(part);
 
             autoService.create(name, description, image);
-            resp.sendRedirect(String.join("/", req.getContextPath(),req.getServletPath()));
+            resp.sendRedirect(String.join("/", req.getContextPath(), req.getServletPath()));
         } catch (SQLException e) {
             e.printStackTrace();
             throw new ServletException(e);

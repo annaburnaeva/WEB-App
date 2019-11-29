@@ -19,7 +19,7 @@ public class AutoService {
         ds = (DataSource)context.lookup("java:/comp/env/jdbc/db");
         try (var conn = ds.getConnection()) {
             try (var stmt = conn.createStatement()) {
-                stmt.execute("create table if not exists autos(id text primary key, name text not null, description text not null, image text)");
+               stmt.execute("create table if not exists autos (id text primary key, name text not null, description text not null, image text);");
             }
         }
     }

@@ -20,9 +20,11 @@
                 <% for (Auto item : (List<Auto>) request.getAttribute("items")) { %>
                 <div class="col-sm-6 mt-3">
                     <div class="card">
-                        <img src="<%= request.getContextPath() %>/images/<%= item.getImage() %>" class="card-img-top" alt="<%= item.getName() %>">
+                        <img src="<%= request.getContextPath() %>/images/<%= item.getImage() %>" class="card-img-top"
+                             alt="<%= item.getName() %>">
                         <div class="card-body">
-                            <h5 class="card-title"><%= item.getName() %>></h5>
+                            <h5 class="card-title"><%= item.getName() %>
+                            </h5>
                             <p class="card-text"><%= item.getDescription() %>
                             </p>
                         </div>
