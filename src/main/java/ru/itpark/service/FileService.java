@@ -12,8 +12,13 @@ public class FileService {
     private final String uploadPath;
 
     public FileService() throws IOException {
-        uploadPath = System.getenv("UPLOAD_PATH");
-        Files.createDirectories(Paths.get(uploadPath));
+        // FIXME: добавил только для тестирования
+        if (System.getenv("UPLOAD_PATH") != null) {
+            uploadPath = System.getenv("UPLOAD_PATH");
+            Files.createDirectories(Paths.get(uploadPath));
+        } else {
+            uploadPath = Files.createTempDirectory("upload").toString();
+        }
     }
     public void readFile(String id, ServletOutputStream os) throws IOException {
         var path = Paths.get(uploadPath).resolve(id);
