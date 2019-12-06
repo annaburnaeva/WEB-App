@@ -31,7 +31,6 @@ public class ImageServlet extends HttpServlet {
             if (parts.length != 2) {
                 throw new RuntimeException("Not found");
             }
-
             fileService.readFile(parts[1], resp.getOutputStream());
         }
     }
