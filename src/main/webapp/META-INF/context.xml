@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/">
-    <Resourse
+    <Resourсe
             name ="jdbc/db"
             auth ="Container"
             type ="javax.sql.DataSource"
@@ -8,14 +8,14 @@
             url = "jdbc:sqlite::memory:"
             closeMethod ="close"
     />
-    <Resourse
+    <Resourсe
             name ="bean/auto-service"
-            auth ="ru.itpark.service.AutoService"
+            type ="ru.itpark.service.AutoService"
             factory = "org.apache.naming.factory.BeanFactory"
     />
-    <Resourse
+    <Resourсe
             name ="bean/file-service"
-            auth ="ru.itpark.service.FileService"
+            type ="ru.itpark.service.FileService"
             factory = "org.apache.naming.factory.BeanFactory"
     />
 </Context>
