@@ -11,15 +11,20 @@ public class FileService {
     private final String uploadPath;
 
     public FileService() throws IOException {
-        uploadPath = System.getenv("UPLOAD_PATH");
-        Files.createDirectories(Paths.get(uploadPath));
+        if (System.getenv("UPLOAD_PATH") != null) {
+            uploadPath = System.getenv("UPLOAD_PATH");
+            Files.createDirectories(Paths.get(uploadPath));
+        } else {
+            uploadPath = Files.createTempDirectory("upload").toString();
+        }
     }
+
     public void readFile(String id, ServletOutputStream os) throws IOException {
         var path = Paths.get(uploadPath).resolve(id);
         Files.copy(path, os);
     }
 
-    public  String writeFile(Part part) throws IOException {
+    public String writeFile(Part part) throws IOException {
         var id = UUID.randomUUID().toString();
         part.write(Paths.get(uploadPath).resolve(id).toString());
         return id;
